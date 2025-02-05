@@ -6,11 +6,11 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 15:33:43 by rhonda            #+#    #+#             */
-/*   Updated: 2023/10/29 18:23:48 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/05 22:46:34 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 t_list	*ft_lstnew(void *content)
 {

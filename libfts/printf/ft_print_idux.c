@@ -6,11 +6,11 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 01:25:24 by rhonda            #+#    #+#             */
-/*   Updated: 2024/03/20 17:39:13 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/05 22:49:17 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	ft_putnbr_base(long long n, int base, int specifier)
 {

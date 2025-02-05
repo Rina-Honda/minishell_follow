@@ -6,11 +6,11 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:36:11 by rhonda            #+#    #+#             */
-/*   Updated: 2024/03/20 19:28:02 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/05 22:51:15 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	ft_output_conversion(va_list *ap, int sp)
 {
@@ -39,7 +39,7 @@ static int	ft_serach_conversion(const char *format, va_list *ap)
 
 	specifier = -1;
 	format++;
-	specifier = ft_strchr("cspdiuxX%", *format);
+	specifier = ft_strchr_printf("cspdiuxX%", *format);
 	if (specifier == -1)
 		return (-1);
 	byte = ft_output_conversion(ap, specifier);

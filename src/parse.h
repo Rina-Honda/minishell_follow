@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 17:30:49 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/05 22:49:25 by rhonda           ###   ########.fr       */
+/*   Created: 2025/02/05 22:22:47 by rhonda            #+#    #+#             */
+/*   Updated: 2025/02/05 22:55:18 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#ifndef PARSE_H
+# define PARSE_H
 
-int	ft_print_percent(void)
-{
-	write(1, "%", 1);
-	return (1);
-}
+# include "../libfts/libft.h"
+
+#endif

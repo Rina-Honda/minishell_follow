@@ -6,11 +6,11 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:24:41 by rhonda            #+#    #+#             */
-/*   Updated: 2023/10/31 15:42:51 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/05 22:47:22 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static void	free_array(char **array, size_t i)
 {

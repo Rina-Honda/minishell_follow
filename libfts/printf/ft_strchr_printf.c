@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
-int	ft_strchr(const char *s, int c)
+int	ft_strchr_printf(const char *s, int c)
 {
 	size_t			i;
 	unsigned char	uc;

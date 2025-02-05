@@ -5,29 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 20:23:19 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/05 21:47:35 by rhonda           ###   ########.fr       */
+/*   Created: 2025/02/05 22:27:08 by rhonda            #+#    #+#             */
+/*   Updated: 2025/02/05 22:50:20 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-//header file
+// Header
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
-# include <limits.h>
+# include <stdarg.h>
 # include <stdint.h>
+# include <limits.h>
 
-//typedef definition
+// Define
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# if INT_MAX < BUFFER_SIZE
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE INT_MAX
+# endif
+
+# if BUFFER_SIZE < 1
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1024
+# endif
+
+// Typedef
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
 
-//prototype declaration
-//part 1
+typedef struct s_line
+{
+	char	*string;
+	size_t	length;
+	size_t	capacity;
+}	t_line;
+
+typedef struct s_buffinfo
+{
+	char	buff[BUFFER_SIZE];
+	char	*buffptr;
+	int		read_byte;
+}	t_buffinfo;
+
+// Prottype Dec
+//  Libft
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -51,8 +86,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
-
-//part 2
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -64,8 +97,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
-//bonus
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -75,5 +106,17 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//  Printf
+int		ft_strchr_printf(const char *s, int c);
+int		ft_printf(const char *format, ...);
+int		ft_print_c(va_list *ap);
+int		ft_print_s(va_list *ap);
+int		ft_print_p(va_list *ap);
+int		ft_print_idux(va_list *ap, int specifier);
+int		ft_print_percent(void);
+
+//  Gnl
+char	*get_next_line(int fd);
 
 #endif

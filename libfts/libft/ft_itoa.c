@@ -6,11 +6,11 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 21:28:48 by rhonda            #+#    #+#             */
-/*   Updated: 2023/10/30 14:24:18 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/05 22:46:03 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static size_t	count_digit(long num)
 {
