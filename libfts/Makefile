@@ -6,7 +6,7 @@
 #    By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 21:30:06 by rhonda            #+#    #+#              #
-#    Updated: 2025/02/05 22:51:43 by rhonda           ###   ########.fr        #
+#    Updated: 2025/02/05 22:58:54 by rhonda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ $(NAME): $(OBJS)
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		$(RM) $(OBJS) $(B_OBJS)
+		$(RM) $(OBJS)
 
 fclean: clean
 		$(RM) $(NAME)
