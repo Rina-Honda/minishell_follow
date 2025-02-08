@@ -6,7 +6,7 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 22:22:35 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/07 23:52:47 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/08 15:04:24 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,35 @@ char	**ft_split_str(char const *str, char c)
 	return (array);
 }
 
+static char	*expand_daller(char *word, char **env)
+{
+	int		i;
+	char	*ret;
+
+	i = 0;
+	while (env[i])
+	{
+		if (!ft_strncmp(env[i], word + 1, ft_strlen(word) - 1)) //?この後getenvになる？
+		{
+			ret = ft_strdup(&env[i][5]); //?決め打ち？
+			free(word); //?NULLチェックいらない？
+			return (ret);
+		}
+		i++;
+	}
+	return (word); //なかったらもらった値をそのまま返却
+}
+
+static void	input_daller(char **str, char **env)
+{
+	while (*str)
+	{
+		if (*str[0] == '$')
+			*str = expand_daller(*str, env);
+		str++;
+	}
+}
+
 int main(int argc, char **argv, char **env)
 {
 	char	*str = "$USER -la | gre p \'Ma ke file\' $HOME";
@@ -111,8 +140,8 @@ int main(int argc, char **argv, char **env)
 	i = 0;
 	(void)argc;
 	(void)argv;
-	(void)env;
 	res = ft_split_str(str, ' ');
+	input_daller(res, env);
 	while (res[i])
 	{
 		printf("%s\n", res[i]);
