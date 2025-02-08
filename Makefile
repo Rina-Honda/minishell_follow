@@ -6,7 +6,7 @@
 #    By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/07 23:22:26 by rhonda            #+#    #+#              #
-#    Updated: 2025/02/08 20:04:34 by rhonda           ###   ########.fr        #
+#    Updated: 2025/02/08 20:20:36 by rhonda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = src/parse/main.c \
 	src/parse/correct_str.c \
 	src/parse/split_str.c \
 	src/parse/daller.c \
+	src/parse/util.c
 
 OBJS = $(SRCS:.c=.o) $(LIBFT)
 
