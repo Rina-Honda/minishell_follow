@@ -6,7 +6,7 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 22:22:35 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/08 15:04:24 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/08 15:23:24 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int	ft_wordlen(char const *str, char c)
 	int				len; //?なんでunsignedじゃない？マイナスになる？
 
 	i = 0;
+	len = 0;
 	while (str[i])
 	{
 		if (str[i] != c) // not space
