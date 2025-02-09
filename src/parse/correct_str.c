@@ -6,7 +6,7 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 19:53:35 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/08 20:01:46 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/09 15:08:23 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ void	ft_fix_correct_str(char **ret, char *str, int *i, int *extra)
 		else
 			(*ret)[*i + *extra] = str[*i];
 	}
+	else if (str[*i] != ' ')
+		(*ret)[(*i + *extra)] = str[*i]; //debug tmp
+	else if (str[*i] == ' ')
+		(*ret)[*i + *extra] = ' ';
 }
 
 char	*ft_correct_str(char *str)

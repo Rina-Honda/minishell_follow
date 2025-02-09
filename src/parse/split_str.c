@@ -6,7 +6,7 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 19:57:46 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/08 22:36:44 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/09 00:15:08 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ static int	ft_split_low(char **array, char const *s, char c)
 
 	str = (char *)s;
 	i = 0;
-	while (i < ft_word_num(s, c))
+	while (i < ft_word_num(s, c)) //?strあるかチェックいらない？
 	{
 		len = ft_char_len(str, c);
 		if (len > 0)
@@ -128,10 +128,10 @@ static int	ft_split_low(char **array, char const *s, char c)
 				return (i + 1);
 			word = ft_fill_word(word, str, len);
 			array[i] = word;
-			str += len + 1;
+			str += len;
 			i++;
 		}
-		else
+		if (*str != '\0')
 			str++;
 	}
 	array[ft_word_num(s, c)] = NULL;
@@ -144,6 +144,7 @@ char	**ft_split_str(char const *str, char c)
 	int		err;
 	int		i;
 
+	printf("%d\n", ft_word_num(str, c));
 	array = malloc(sizeof(char *) * (ft_word_num(str, c) + 1));
 	if (!array)
 		return (NULL);
@@ -153,7 +154,7 @@ char	**ft_split_str(char const *str, char c)
 		i = 0;
 		while (i < err - 1)
 		{
-			free(array);
+			free(array[i]);
 			i++;
 		}
 		free(array);
