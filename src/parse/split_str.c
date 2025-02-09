@@ -6,7 +6,7 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 19:57:46 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/09 00:15:08 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/09 17:35:16 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ char	**ft_split_str(char const *str, char c)
 	int		err;
 	int		i;
 
-	printf("%d\n", ft_word_num(str, c));
+	// printf("%d\n", ft_word_num(str, c));
 	array = malloc(sizeof(char *) * (ft_word_num(str, c) + 1));
 	if (!array)
 		return (NULL);
