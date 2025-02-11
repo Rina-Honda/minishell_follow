@@ -6,7 +6,7 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 22:22:35 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/09 20:55:27 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/09 22:35:06 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int main(int argc, char **argv, char **env)
 	// char	*str = "ls -la << EOF | awk \"<$HOME d\" | cat"; // << はヒアドキュメント（複数行を渡せる）
 	// char	*str = "ls -l | cat << lim | cat > outfile | cat >> outfile";
 	// char	*str = "ls -l | cat << lim | cat | cat";ret
-	char	*str = "ls | cat | cat | cat | > file | cat | cat | cat >> outfile";
+	// char	*str = "ls | cat | cat | cat | > file | cat | cat | cat >> outfile";
 	// char	*str = "USER|grep $HOME";
-	// char	*str = "$USER -la | gre p \'Ma ke$HOME file\' $HOME";  // 「\'」 これで１文字とカウントされる
+	char	*str = "$USER -la | gre p \'Ma ke$HOME file\' $HOME";  // 「\'」 これで１文字とカウントされる
 	char	**res;
 	size_t		i;
 
@@ -35,6 +35,7 @@ int main(int argc, char **argv, char **env)
 	(void)argv;
 	res = ft_split_str(str, ' ');
 	ft_check_var(res, env);
+	printf("%d\n", ft_array_len(res, "<|>"));
 	i = 0;
 	while (res[i] != NULL)
 	{
@@ -43,7 +44,7 @@ int main(int argc, char **argv, char **env)
 		i++;
 	}
 	printf("pipe etc\n");
-	printf("%i\n", ft_array_len(res, "<|>"));
+	
 	free(res);
 	return (0);
 }
