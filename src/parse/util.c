@@ -6,7 +6,7 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 22:20:11 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/09 20:48:40 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/15 16:55:51 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_array_len(char **s, char *act)
 		while (s[j][i])
 		{
 			ft_mv_quote(s[j], &i);
-			if (ft_strchr(act, s[j][i])) //?わからん？
+			if (ft_strchr(act, s[j][i])) //わからん？→パイプとリダイレクト前後を切り離している
 			{
 				cnt++;
 				if (i > 0)
@@ -55,6 +55,6 @@ int	ft_array_len(char **s, char *act)
 		}
 		j++;
 	}
-	cnt += j;
+	cnt += j; //? j - 1じゃなくていい？→NULL分かも
 	return (cnt);
 }
