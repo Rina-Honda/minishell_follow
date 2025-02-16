@@ -6,7 +6,7 @@
 /*   By: rhonda <rhonda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 19:57:46 by rhonda            #+#    #+#             */
-/*   Updated: 2025/02/09 17:35:16 by rhonda           ###   ########.fr       */
+/*   Updated: 2025/02/15 22:32:50 by rhonda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,13 +125,16 @@ static int	ft_split_low(char **array, char const *s, char c)
 		{
 			word = malloc(sizeof(char) * (len + 1));
 			if (word == NULL)
+			{
+				ft_putstr_fd("Error: malloc failed in ft_split_low()\n", 2);
 				return (i + 1);
+			}
 			word = ft_fill_word(word, str, len);
 			array[i] = word;
-			str += len;
+			str += len + 1; //? +1どこからきた？→たぶん区切り文字分も進めてる
 			i++;
 		}
-		if (*str != '\0')
+		else if (*str != '\0')
 			str++;
 	}
 	array[ft_word_num(s, c)] = NULL;
@@ -141,18 +144,27 @@ static int	ft_split_low(char **array, char const *s, char c)
 char	**ft_split_str(char const *str, char c)
 {
 	char	**array;
-	int		err;
+	int		words;
 	int		i;
 
 	// printf("%d\n", ft_word_num(str, c));
-	array = malloc(sizeof(char *) * (ft_word_num(str, c) + 1));
+	words = ft_word_num(str, c);
+	array = malloc(sizeof(char *) * (words + 1));
 	if (!array)
+	{
+		ft_putstr_fd("Error: malloc failed in ft_split_str()\n", 2);
 		return (NULL);
-	err = ft_split_low(array, str, c);
-	if (err)
+	}
+	i = 0;
+	while (i < words) //init
+	{
+		array[i] = NULL;
+		i++;
+	}
+	if (ft_split_low(array, str, c)) // 途中で失敗したら全free
 	{
 		i = 0;
-		while (i < err - 1)
+		while (i < words)
 		{
 			free(array[i]);
 			i++;
@@ -160,5 +172,9 @@ char	**ft_split_str(char const *str, char c)
 		free(array);
 		return (NULL);
 	}
+	printf("=== Debug Splited Tokens ===\n");
+	for (int i = 0; array[i]; i++)
+		printf("Token[%d]: %s (addr: %p)\n", i, array[i], (void *)array[i]);
+	printf("============================\n");
 	return (array);
 }
